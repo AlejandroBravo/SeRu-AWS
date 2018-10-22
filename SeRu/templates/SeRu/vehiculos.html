@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Vehiculos</h2>
+    <ul>
+        {% for vehiculo in object_list %}
+            <li>{{ vehiculo.modelo }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
