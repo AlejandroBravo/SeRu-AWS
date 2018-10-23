@@ -2,15 +2,15 @@
 from __future__ import unicode_literals
 
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-class Profile(models.Model):
-	user = models.OneToOneField(User,on_delete=models.CASCADE,default=None,related_name='profile')
+class Profile(AbstractUser):
+#	user = models.OneToOneField(User,on_delete=models.CASCADE,default=None)
 	telefono_contacto = models.CharField(max_length=9,null=False,default='000000000')
-			
+	
 	def __unicode__(self):
 		return self.user.username
 
@@ -35,10 +35,10 @@ class Vehiculo(models.Model):
 	def __unicode__(self):
 		return self.modelo
 
-@receiver(post_save, sender=User)
-def create_user_profile(sender,instance,created,**kwargs):
-	if created:
-		Profile.objects.create(user=instance)
-	instance.profile.save()
+#@receiver(post_save, sender=User)
+#def create_user_profile(sender,instance,created,**kwargs):
+#	if created:
+#		Profile.objects.create(user=instance)
+#	instance.profile.save()
 
 	
