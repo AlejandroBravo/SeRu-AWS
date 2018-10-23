@@ -4,15 +4,15 @@ from __future__ import unicode_literals
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
 from django.urls import reverse_lazy
-from .models import Vehiculo, Post, Profile
+from .models import Vehiculo, Post, User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
 from .forms import Formulario_Registro
 # Create your views here.
 
-class ListaPerfiles(ListView):
-	model = Profile
+class ListaUsers(ListView):
+	model = User
 	template_name = 'SeRu/usuarios.html'
 
 class ListaPosts(ListView):
@@ -24,19 +24,19 @@ class ListaVehiculos(ListView):
 	template_name='SeRu/vehiculos.html'
 
 class CreaPerfil(CreateView):
-	model = Profile
+	model = User
 	fields = '__all__'
 	success_url = reverse_lazy('usuarios')
 	template_name='SeRu/nuevo_usuario.html'
 
 class ActualizaPerfil(UpdateView):
-	model = Profile
+	model = User
 	fields = '__all__'
 	success_url = reverse_lazy('usuarios')
 	template_name='SeRu/cambiar_usuario.html'
 
 class BorraPerfil(DeleteView):
-	model = Profile
+	model = User
 	fields = '__all__'
 	success_url = reverse_lazy('usuarios')
 	template_name='SeRu/borrar_usuario.html'

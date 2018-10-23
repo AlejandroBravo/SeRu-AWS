@@ -25,7 +25,7 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^$',TemplateView.as_view(template_name='SeRu/home.html')),
     url(r'^registrarse/$', Registrarse, name='registrarse'),
-    url(r'^usuarios/$',ListaPerfiles.as_view(), name='usuarios'),
+    url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
     url(r'^posts/$', ListaPosts.as_view(), name='posts'),
     url(r'^posts/agregar/$',CreaPost.as_view(),name='nuevo_post'),
     url(r'^posts/modificar/(?P<pk>[0-9]+)/$',ActualizaPost.as_view(),name='cambiar_post'),

@@ -7,16 +7,15 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-class Profile(AbstractUser):
+class User(AbstractUser):
 #	user = models.OneToOneField(User,on_delete=models.CASCADE,default=None)
-	telefono_contacto = models.CharField(max_length=9,null=False,default='000000000')
-	
-	def __unicode__(self):
-		return self.user.username
+	telefono_contacto = models.CharField(max_length=9,null=False,default='000000000')	
+#	def __unicode__(self):
+#		return self.user.username
 
 class Post(models.Model):
 	nombre_post = models.CharField(max_length=50,null=False,default='Vendo Vehiculo')
-	usuario_creador = models.ForeignKey('Profile',on_delete=models.CASCADE)
+	usuario_creador = models.ForeignKey('User',on_delete=models.CASCADE)
 	vehiculo_id = models.ForeignKey('Vehiculo',on_delete=models.CASCADE)
 	ubicacion = models.CharField(max_length=100,null=False)
 	descripcion = models.TextField(null=False)
