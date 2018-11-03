@@ -8,7 +8,7 @@ from .models import Vehiculo, Post, User
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
-from .forms import Formulario_Registro
+from .forms import UserCreateForm
 # Create your views here.
 
 class ListaUsers(ListView):
@@ -84,10 +84,10 @@ class BorraPost(DeleteView):
 
 def Registrarse(request):
 	if request.method == 'POST':
-		form = Formulario_Registro(request.POST)
+		form = UserCreateForm(request.POST)
 		if form.is_valid():
 			form.save()
 			return redirect('usuarios')
 	else:
-		form = Formulario_Registro()
+		form = UserCreateForm()
 	return render(request, 'SeRu/registrarse.html', {'form': form})
