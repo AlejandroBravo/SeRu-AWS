@@ -8,7 +8,6 @@ from django.dispatch import receiver
 
 # Create your models here.
 class User(AbstractUser):
-#	user = models.OneToOneField(User,on_delete=models.CASCADE,default=None)
 	telefono_contacto = models.CharField(max_length=9,null=False,default='000000000')	
 #	def __unicode__(self):
 #		return self.user.username

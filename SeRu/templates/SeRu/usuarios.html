@@ -4,7 +4,7 @@
     <h2>Usuarios</h2>
     <ul>
         {% for usuarios in object_list %}
-            <li>{{ usuarios.user.username }}</li>
+            <li>{{ AbstractUser.telefono_contacto }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
