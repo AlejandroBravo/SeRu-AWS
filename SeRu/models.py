@@ -19,7 +19,8 @@ class Post(models.Model):
 	ubicacion = models.CharField(max_length=100,null=False)
 	descripcion = models.TextField(null=False)
 	precio = models.PositiveIntegerField(null=False)
-	fecha_itv_valida = models.DateTimeField()
+	fecha_itv_valida = models.DateField()
+#	telefono = models.ForeignKey('User',on_delete=models.CASCADE)
 	
 	def __unicode__(self):
 		return self.nombre_post
@@ -32,11 +33,5 @@ class Vehiculo(models.Model):
 	
 	def __unicode__(self):
 		return self.modelo
-
-#@receiver(post_save, sender=User)
-#def create_user_profile(sender,instance,created,**kwargs):
-#	if created:
-#		Profile.objects.create(user=instance)
-#	instance.profile.save()
 
 	

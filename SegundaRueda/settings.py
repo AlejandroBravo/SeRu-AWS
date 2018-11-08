@@ -105,7 +105,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/1.11/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-es'
+#LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -131,5 +132,6 @@ STATICFILES_FINDERS = (
 )
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
 
 AUTH_USER_MODEL = 'SeRu.User'

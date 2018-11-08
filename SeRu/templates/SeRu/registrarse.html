@@ -1,8 +1,12 @@
+{% extends "base.html" %}
+
 {% block content %}
-  <h2>Registro de usuario</h2>
+  <h2 style="text-align: center;">Registro de usuario</h2>
   <form method="post">
+  	<div style="display: flex">
     {% csrf_token %}
     {{ form.as_p }}
+    </div>
     <button type="submit">Enviar registro</button>
   </form>
 {% endblock %}
