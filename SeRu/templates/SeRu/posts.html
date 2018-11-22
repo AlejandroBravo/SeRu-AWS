@@ -4,7 +4,9 @@
     <h2>Posts</h2>
     <ul>
         {% for post in object_list %}
-            <li>{{ post.nombre_post }}</li>
+        	{{ post.pk }}
+            <a href="http://127.0.0.1:8000/posts/modificar/{{ post.id }}">{{ post.nombre_post }}</a><br>
+        	
         {% endfor %}
     </ul>
 {% endblock %}

@@ -1,16 +1,16 @@
 {% extends "base.html" %}
 {% block content %}
 {% if not user.is_authenticated %}
-<h1>Necesitas una cuenta para poder crear un post</h1>
+<h1 style="text-align: center;">Necesitas una cuenta para poder crear un post</h1>
 {% endif %}
 {% if user.is_authenticated %}
-<h1>Introduce los datos de tu post</h1>
-
-
+<h1 style="text-align: center;">Introduce los datos de tu post</h1>
+	<div style="text-align: center;">
     <form action="" method="POST">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" name="submit">
-    </form>    
+    </form> 
+    </div>   
 {% endif %}
 {% endblock content %}

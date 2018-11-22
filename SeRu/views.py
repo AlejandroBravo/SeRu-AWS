@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django.shortcuts import render
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic.detail import DetailView
 from django.urls import reverse_lazy
 from .models import Vehiculo, Post, User
 from django.contrib.auth import login, authenticate
@@ -22,6 +23,11 @@ class ListaPosts(ListView):
 class ListaVehiculos(ListView):
 	model = Vehiculo
 	template_name='SeRu/vehiculos.html'
+
+class MuestraPost(DetailView):
+	model = Post
+	fields = '__all__'
+	template_name='SeRu/mostrar_post.html'
 
 class CreaPerfil(CreateView):
 	model = User
@@ -65,9 +71,9 @@ class CreaPost(CreateView):
 	success_url = reverse_lazy('posts')
 	template_name='SeRu/nuevo_post.html'
 	
-	def form_valid(self, form):
-		form.instance.created_by = self.request.user
-		return super('usuario_creador', self).form_valid(form)
+	#def form_valid(self, form):
+	#	form.instance.created_by = self.request.user
+	#	return super('usuario_creador', self).form_valid(form)
 
 
 class ActualizaPost(UpdateView):
@@ -75,6 +81,7 @@ class ActualizaPost(UpdateView):
 	fields = '__all__'
 	success_url = reverse_lazy('posts')
 	template_name='SeRu/cambiar_post.html'
+
 
 class BorraPost(DeleteView):
 	model = Post

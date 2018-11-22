@@ -19,7 +19,7 @@ class Post(models.Model):
 	ubicacion = models.CharField(max_length=100,null=False)
 	descripcion = models.TextField(null=False)
 	precio = models.PositiveIntegerField(null=False)
-	fecha_itv_valida = models.DateField()
+#	fecha_itv_valida = models.DateField()
 #	telefono = models.ForeignKey('User',on_delete=models.CASCADE)
 	
 	def __unicode__(self):

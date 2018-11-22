@@ -28,6 +28,7 @@ urlpatterns = [
     url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
     url(r'^posts/$', ListaPosts.as_view(), name='posts'),
     url(r'^posts/agregar/$',CreaPost.as_view(),name='nuevo_post'),
+    url(r'^posts/mostrar/(?P<pk>[0-9]+)/$',MuestraPost.as_view(),name='mostrar_post'),
     url(r'^posts/modificar/(?P<pk>[0-9]+)/$',ActualizaPost.as_view(),name='cambiar_post'),
     url(r'^posts/borrar/(?P<pk>[0-9]+)/$',BorraPost.as_view(),name='borrar_post'),
     url(r'^vehiculos/$', ListaVehiculos.as_view(), name='vehiculos'),
