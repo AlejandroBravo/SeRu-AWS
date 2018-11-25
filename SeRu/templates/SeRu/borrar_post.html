@@ -1,11 +1,18 @@
 {% extends "base.html" %}
 
-{% block title %}Registrate{% endblock %}
+{% block title %}{% endblock %}
 
 {% block content %}
+	{% if user.username == object.usuario_creador %}
     <form action="" method="POST">
         {% csrf_token %}
-        {{ object }}
+        {{ form.as_p }}
+        <p>Teléfono de contacto: {{ post.usuario_creador.telefono_contacto }}</p>
+        <br>
         <input type="submit" name="submit">
-    </form>    
+    </form>
+    {% endif %}
+    {% if not user.username == object.usuario_creador %}
+    <p>Nos puedes borrar un post del cual no eres propietario.</p>
+    {% endif %}
 {% endblock content %}

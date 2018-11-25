@@ -29,6 +29,11 @@ class MuestraPost(DetailView):
 	fields = '__all__'
 	template_name='SeRu/mostrar_post.html'
 
+class MuestraVehiculo(DetailView):
+	model = Vehiculo
+	fields = '__all__'
+	template_name='SeRu/mostrar_vehiculo.html'
+
 class CreaPerfil(CreateView):
 	model = User
 	fields = '__all__'

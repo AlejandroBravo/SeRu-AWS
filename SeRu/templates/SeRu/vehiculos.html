@@ -4,7 +4,8 @@
     <h2>Vehiculos</h2>
     <ul>
         {% for vehiculo in object_list %}
-            <li>{{ vehiculo.modelo }}</li>
+            {{ vehiculo.pk }}
+            <a href="http://127.0.0.1:8000/vehiculos/mostrar/{{ vehiculo.id }}">{{ vehiculo.clase_vehiculo }} {{ vehiculo.modelo }}</a><br>
         {% endfor %}
     </ul>
 {% endblock %}
