@@ -1,0 +1,56 @@
+
+
+{% block content %}
+
+{% if form.errors %}
+<p>Tu usuario y contraseña introducidos no coinciden. Por favor, intentalo de nuevo.</p>
+{% endif %}
+
+{% if next %}
+    {% if user.is_authenticated %}
+    <p>Tu cuenta no tiene acceso a esta pagina. Para continuar, conecta con una cuenta que este autorizada para ello..</p>
+    {% else %}
+    <p>Por favor, conectate con tu cuenta para ver esta pagina.</p>
+    {% endif %}
+{% endif %}
+
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{% static 'SeRu/Imagenes/índice.jpeg' %}">
+
+    <title>Signin Template for Bootstrap</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'SeRu/bootstrap.min.css' %}" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'SeRu/signin.css' %}" rel="stylesheet">
+  </head>
+
+  <body style="display: block; margin-right: 40%;margin-left: 40%"class="text-center">
+    <form class="form-signin">
+      <img class="mb-4" src="{% static 'SeRu/Imagenes/índice.jpeg' %}" alt="" width="72" height="72">
+      <h1>Bienvenido a Segunda Rueda</h1>
+     <div>
+      <td>Usuario</td>
+      <td>{{ form.username }}</td>
+     </div>
+      <div>
+        <td>Contraseña</td>
+         <td>{{ form.password }}</td>
+        </div>
+      <br>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Conectar</button>
+      <p class="mt-5 mb-3 text-muted">&copy; 2018-2019</p>
+    </form>
+  </body>
+</html>
+{% endblock %}

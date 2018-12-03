@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+s
+{% block title %}{% endblock %}
+
+{% block content %}
+        {% csrf_token %}
+        <p>Clase de vehiculo: {{ object.clase_vehiculo }}</p>
+        <p>Marca: {{ object.marca }}</p>
+        <p>Modelo: {{ object.modelo }}</p>
+        <p>Tipo: {{ object.tipo }}</p>
+{% endblock content %}
