@@ -17,11 +17,48 @@ from django.conf.urls import url, include
 from django.contrib import admin
 from SeRu.views import *
 from django.views.generic import TemplateView
+from SeRu.models import *
+from rest_framework import routers, serializers, viewsets
 
 app_name = 'SeRu'
 
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = User
+        fields = ('username', 'telefono_contacto','first_name','last_name','email')
+
+class PostSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Post
+        fields = ('nombre_post', 'usuario_creador','vehiculo_id','ubicacion','descripcion','precio')
+
+class VehiculoSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Vehiculo
+        fields = ('clase_vehiculo', 'marca','modelo','tipo')
+
+
+class UserViewSet(viewsets.ModelViewSet):
+    queryset = User.objects.all()
+    serializer_class = UserSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+
+class VehiculoViewSet(viewsets.ModelViewSet):
+    queryset = Vehiculo.objects.all()
+    serializer_class = VehiculoSerializer
+
+router = routers.DefaultRouter()
+router.register(r'APIusuarios', UserViewSet)
+router.register(r'APIposts', PostViewSet)
+router.register(r'APIvehiculos', VehiculoViewSet)
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^api/', include(router.urls)),
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^$',TemplateView.as_view(template_name='SeRu/home.html')),
     url(r'^registrarse/$', Registrarse, name='registrarse'),
@@ -30,10 +67,10 @@ urlpatterns = [
     url(r'^posts/agregar/$',CreaPost.as_view(),name='nuevo_post'),
     url(r'^posts/mostrar/(?P<pk>[0-9]+)/$',MuestraPost.as_view(),name='mostrar_post'),
     url(r'^posts/modificar/(?P<pk>[0-9]+)/$',ActualizaPost.as_view(),name='cambiar_post'),
-#    url(r'^posts/borrar/(?P<pk>[0-9]+)/$',BorraPost.as_view(),name='borrar_post'),
+    url(r'^posts/borrar/(?P<pk>[0-9]+)/$',BorraPost.as_view(),name='borrar_post'),
     url(r'^vehiculos/$', ListaVehiculos.as_view(), name='vehiculos'),
     url(r'^vehiculos/agregar/$',CreaVehiculo.as_view(),name='nuevo_vehiculo'),
-    url(r'^vehiculos/cambiar/(?P<pk>[0-9]+)/$',ActualizaVehiculo.as_view(),name='cambiar_post'),
+#    url(r'^vehiculos/cambiar/(?P<pk>[0-9]+)/$',ActualizaVehiculo.as_view(),name='cambiar_post'),
     url(r'^vehiculos/mostrar/(?P<pk>[0-9]+)/$',MuestraVehiculo.as_view(),name='mostrar_post'),
 #    url(r'^vehiculos/borrar/(?P<pk>[0-9]+)/$',BorraVehiculo.as_view(),name='borrar_vehiculo'),
 ]
