@@ -25,17 +25,18 @@ app_name = 'SeRu'
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
+        #fields = '__all__'
         fields = ('username', 'telefono_contacto','first_name','last_name','email')
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Post
-        fields = ('nombre_post', 'usuario_creador','vehiculo_id','ubicacion','descripcion','precio')
+        fields = '__all__'
 
 class VehiculoSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Vehiculo
-        fields = ('clase_vehiculo', 'marca','modelo','tipo')
+        fields = '__all__'
 
 
 class UserViewSet(viewsets.ModelViewSet):
