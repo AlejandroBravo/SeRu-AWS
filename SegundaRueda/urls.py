@@ -19,6 +19,9 @@ from SeRu.views import *
 from django.views.generic import TemplateView
 from SeRu.models import *
 from rest_framework import routers, serializers, viewsets
+from rest_framework.authentication import SessionAuthentication, BasicAuthentication
+from rest_framework.permissions import IsAuthenticated
+
 
 app_name = 'SeRu'
 
@@ -40,6 +43,8 @@ class VehiculoSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class UserViewSet(viewsets.ModelViewSet):
+    authentication_classes = (SessionAuthentication, BasicAuthentication,)
+    permission_classes = (IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
@@ -48,6 +53,8 @@ class PostViewSet(viewsets.ModelViewSet):
     serializer_class = PostSerializer
 
 class VehiculoViewSet(viewsets.ModelViewSet):
+    authentication_classes = (SessionAuthentication, BasicAuthentication,)
+    permission_classes = (IsAuthenticated,)
     queryset = Vehiculo.objects.all()
     serializer_class = VehiculoSerializer
 
