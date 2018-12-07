@@ -18,3 +18,11 @@ class UserCreateForm(UserCreationForm):
         user_profile = User(telefono_contacto=self.cleaned_data['telefono_contacto'],first_name=self.cleaned_data['first_name'],last_name=self.cleaned_data['last_name'],email=self.cleaned_data['email'],)
         user_profile.save()
         return user, user_profile
+
+#class FormCreaPost(forms.Form):
+#    nombre_post = forms.CharField(max_length=50)
+#    usuario_creador = forms.CharField(widget=forms.Textarea)
+#    vehiculo_id = forms.CharField(widget=forms.Textarea)
+#    ubicacion = forms.CharField(widget=forms.Textarea)
+#    descripcion = forms.CharField(widget=forms.Textarea)
+#    precio = forms.CharField(widget=forms.Textarea)

@@ -9,8 +9,6 @@ from django.dispatch import receiver
 # Create your models here.
 class User(AbstractUser):
 	telefono_contacto = models.CharField(max_length=9,null=False,default='000000000')	
-#	def __unicode__(self):
-#		return self.user.username
 
 class Post(models.Model):
 	nombre_post = models.CharField(max_length=50,null=False,default='Vendo Vehiculo')
@@ -19,8 +17,6 @@ class Post(models.Model):
 	ubicacion = models.CharField(max_length=100,null=False)
 	descripcion = models.TextField(null=False)
 	precio = models.PositiveIntegerField(null=False)
-#	fecha_itv_valida = models.DateField()
-#	telefono = models.ForeignKey('User',on_delete=models.CASCADE)
 	
 	def __unicode__(self):
 		return self.nombre_post

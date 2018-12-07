@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}{% endblock %}
+
+{% block content %}
+        
+        <p>Nick: {{ object.username }}</p>
+        <p>Nombre: {{ object.first_name }}</p>
+        <p>Apellidos: {{ object.last_name }}</p>
+        {% if user.is_authenticated %}
+        <p>Teléfono de Contacto: {{ object.telefono_contacto }}</p>
+        {% endif %}
+        {% if not user.is_authenticated %}
+        <p>Teléfono de Contacto: Para poder ver el teléfono de contacto debes tener una cuenta registrada. Puedes hacerlo en la barra de navegación superior.</p>
+        {% endif %}
+{% endblock %}

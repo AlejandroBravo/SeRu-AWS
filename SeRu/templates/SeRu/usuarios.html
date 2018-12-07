@@ -3,8 +3,10 @@
 {% block content %}
     <h2>Usuarios</h2>
     <ul>
-        {% for usuarios in object_list %}
-            <li>{{ AbstractUser.telefono_contacto }}</li>
+        {% for user in object_list %}
+        	{{ user.pk }}
+            <a href="http://127.0.0.1:8000/usuarios/mostrar/{{ user.id }}">{{ user.username }}</a><br>
+        	
         {% endfor %}
     </ul>
 {% endblock %}

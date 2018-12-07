@@ -11,6 +11,30 @@
         {{ form.as_p }}
         <input type="submit" name="submit">
     </form> 
-    </div>   
+    </div> 
+<!--
+<h3 style="color:white;font-weight:bolder">Crear Post</h3>
+<div>
+<form action="" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<p>Nombre del post</p> {{ post.nombre_post }}
+	</br>
+	</br>
+	<p>ID del vehiculo</p> {{ post.vehiculo_id }}
+	</br>
+	</br>
+	<p>Ubicacion</p> {{ post.ubicacion }}
+	</br>
+	</br>
+	<p>Descripcion</p> 	{{ post.descripcion }}
+	</br>
+	</br>
+	<p>Precio</p> {{ post.precio }}
+	</br>
+	</br>
+	<input type="submit" value="Crear" />
+</form>
+</div>
+-->
 {% endif %}
-{% endblock content %}
+{% endblock %}

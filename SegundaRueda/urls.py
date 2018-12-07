@@ -25,10 +25,10 @@ from rest_framework.permissions import IsAuthenticated
 
 app_name = 'SeRu'
 
+
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        #fields = '__all__'
         fields = ('username', 'telefono_contacto','first_name','last_name','email')
 
 class PostSerializer(serializers.HyperlinkedModelSerializer):
@@ -70,15 +70,18 @@ urlpatterns = [
     url(r'^accounts/', include('django.contrib.auth.urls')),
     url(r'^$',TemplateView.as_view(template_name='SeRu/home.html')),
     url(r'^registrarse/$', Registrarse, name='registrarse'),
-#    url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
+    url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
+    url(r'^usuarios/borrar/(?P<pk>[0-9]+)/$',BorraPerfil.as_view(),name='borrar_usuario'),
+#    url(r'^usuarios/mostrar/(?P<pk>[0-9]+)/$',MuestraUsuario.as_view(), name='mostrar_usuario'),
     url(r'^posts/$', ListaPosts.as_view(), name='posts'),
+#    url(r'^posts/agregar/$',CreaPost,name='nuevo_post'),
     url(r'^posts/agregar/$',CreaPost.as_view(),name='nuevo_post'),
     url(r'^posts/mostrar/(?P<pk>[0-9]+)/$',MuestraPost.as_view(),name='mostrar_post'),
-    url(r'^posts/modificar/(?P<pk>[0-9]+)/$',ActualizaPost.as_view(),name='cambiar_post'),
-    url(r'^posts/borrar/(?P<pk>[0-9]+)/$',BorraPost.as_view(),name='borrar_post'),
+#    url(r'^posts/modificar/(?P<pk>[0-9]+)/$',ActualizaPost.as_view(),name='cambiar_post'),
+#    url(r'^posts/borrar/(?P<pk>[0-9]+)/$',BorraPost.as_view(),name='borrar_post'),
     url(r'^vehiculos/$', ListaVehiculos.as_view(), name='vehiculos'),
     url(r'^vehiculos/agregar/$',CreaVehiculo.as_view(),name='nuevo_vehiculo'),
 #    url(r'^vehiculos/cambiar/(?P<pk>[0-9]+)/$',ActualizaVehiculo.as_view(),name='cambiar_post'),
-    url(r'^vehiculos/mostrar/(?P<pk>[0-9]+)/$',MuestraVehiculo.as_view(),name='mostrar_post'),
+    url(r'^vehiculos/mostrar/(?P<pk>[0-9]+)/$',MuestraVehiculo.as_view(),name='mostrar_vehiculo'),
 #    url(r'^vehiculos/borrar/(?P<pk>[0-9]+)/$',BorraVehiculo.as_view(),name='borrar_vehiculo'),
 ]
