@@ -1,6 +1,15 @@
-{% extends "base.html" %}
-{% block content %}
-<h1 align="center">Bienvenido a Segunda Rueda</h1>
-<br>
+{% extends 'base.html' %}
+
+{% block head_title %}Bienvenido a Segunda Rueda {% endblock %}
+
+{% block jumbo %}
+<div style="display: inline-flex; text-align: center;">
+	<div style="width: 50%;">
+        <h1>Bienvenido a Segunda Rueda</h1>
+        <p>Segunda Rueda es una de las nuevas prometedoras aspirantes a hacerse con el mercado de la compraventa de vehiculos.</p>
+        <p>Aquí encontrarás todo tipo de utilitarios y vehiculos de empresa con los que poder optimizar tu dia a dia. Pasa y echa un vistazo. No dudes en contactar con administración para cualquier solicitud.</p>
+       
+	</div>
+<div style="width: 50%"><iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/zW21gronAg4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+</div>
 {% endblock %}
-<p>Bienvenido {{user.username}}</p>
