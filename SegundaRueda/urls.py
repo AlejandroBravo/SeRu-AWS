@@ -68,7 +68,7 @@ urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
-    url(r'^$',TemplateView.as_view(template_name='SeRu/home.html')),
+    url(r'^$',TemplateView.as_view(template_name='SeRu/home.html', name='home')),
     url(r'^registrarse/$', Registrarse, name='registrarse'),
     url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
     url(r'^usuarios/borrar/(?P<pk>[0-9]+)/$',BorraPerfil.as_view(),name='borrar_usuario'),
