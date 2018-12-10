@@ -5,7 +5,7 @@
     <ul>
         {% for post in object_list %}
         	{{ post.pk }}
-            <a href="{% url 'mostrar_post/{{ post.id }}' %}">{{ post.nombre_post }}</a><br>
+            <a href="{% url 'mostrar_post' post.id %}">{{ post.nombre_post }}</a><br>
         	
         {% endfor %}
     </ul>

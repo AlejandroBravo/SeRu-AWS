@@ -33,7 +33,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="{% url 'home' %}">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="localhost:9555/">Inicio <span class="sr-only">(current)</span></a>
           </li>
           {% if not user.is_authenticated %}
           <li class="nav-item">
@@ -42,16 +42,16 @@
           {% endif %}
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="http://127.0.0.1:8000/accounts/logout/">Cerrar Sesion</a>
+            <a class="nav-link" style="color: white;" href="http://localhost:9555/accounts/logout/">Cerrar Sesion</a>
           </li>
           {% endif %}
           {% if not user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="http://127.0.0.1:8000/accounts/login/">Iniciar Sesion</a>
+            <a class="nav-link" style="color: white;" href="http://localhost:9555/accounts/login/">Iniciar Sesion</a>
           </li>
           {% endif %}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" style="color: white;" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</a>
+            <a class="nav-link dropdown-toggle" style="color: white;" href="" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Acciones</a>
             <div class="dropdown-menu" aria-labelledby="dropdown01">
               <a class="dropdown-item" href="{% url 'nuevo_post' %}">Crear un post</a>
               <a class="dropdown-item" href="{% url 'posts' %}">Ver todos los posts</a>

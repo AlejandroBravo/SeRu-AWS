@@ -5,7 +5,7 @@
     <ul>
         {% for user in object_list %}
         	{{ user.pk }}
-            <a href="{% url 'usuarios/{{ user.id }}' %}">{{ user.username }}</a><br>
+            <a href="{% url 'usuarios' user.id %}">{{ user.username }}</a><br>
         	
         {% endfor %}
     </ul>
