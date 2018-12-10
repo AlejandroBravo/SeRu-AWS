@@ -5,7 +5,7 @@
     <ul>
         {% for vehiculo in object_list %}
             {{ vehiculo.pk }}
-            <a href="http://127.0.0.1:8000/vehiculos/mostrar/{{ vehiculo.id }}">{{ vehiculo.clase_vehiculo }} {{ vehiculo.marca }} {{ vehiculo.modelo }}</a><br>
+            <a href="{% url 'mostrar_vehiculo/{{ vehiculo.id }}' %}">{{ vehiculo.clase_vehiculo }} {{ vehiculo.marca }} {{ vehiculo.modelo }}</a><br>
         {% endfor %}
     </ul>
 {% endblock %}
