@@ -1,3 +1,4 @@
+<!--{% load staticfiles %}-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -6,15 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="{% static 'SeRu/Imagenes/índice.jpeg' %}">
+   <!-- <link rel="icon" href="{% static 'SeRu/Imagenes/índice.jpeg' %}"> -->
 
     <title>Bienvenido a Segunda Rueda</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{% static 'SeRu/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'bootstrap.min.css' %}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{% static 'SeRu/jumbotron.css' %}" rel="stylesheet">
+    <link href="{% static 'jumbotron.css' %}" rel="stylesheet">
   </head>
 
   <body>
@@ -33,7 +34,7 @@
       <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="http://localhost:9555//">Inicio <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="http://segundarueda.duckdns.org/">Inicio <span class="sr-only">(current)</span></a>
           </li>
           {% if not user.is_authenticated %}
           <li class="nav-item">
@@ -42,12 +43,12 @@
           {% endif %}
           {% if user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="http://localhost:9555/accounts/logout/">Cerrar Sesion</a>
+            <a class="nav-link" style="color: white;" href="http://segundarueda.duckdns.org/accounts/logout/">Cerrar Sesion</a>
           </li>
           {% endif %}
           {% if not user.is_authenticated %}
           <li class="nav-item">
-            <a class="nav-link" style="color: white;" href="http://localhost:9555/accounts/login/">Iniciar Sesion</a>
+            <a class="nav-link" style="color: white;" href="http://segundarueda.duckdns.org/accounts/login/">Iniciar Sesion</a>
           </li>
           {% endif %}
           <li class="nav-item dropdown">
@@ -80,7 +81,9 @@
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="{% static 'SeRu/popper.min.js' %}"></script>
-    <script src="{% static 'SeRu/bootstrap.min.js' %}"></script>
+    <script src="{% static 'popper.min.js' %}"></script>
+   <!--  <script src="{% static 'SeRu/popper.min.js' %}"></script>
+    <script src="{% static 'SeRu/bootstrap.min.js' %}"></script> -->
+    <script src="{% static 'bootstrap.min.js' %}"></script>
   </body>
 </html>

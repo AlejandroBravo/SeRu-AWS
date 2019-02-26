@@ -13,6 +13,8 @@ Including another URLconf
     1. Import the include() function: from django.conf.urls import url, include
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
+from django.conf import settings
+from django.conf.urls.static import static
 from django.conf.urls import url, include
 from django.contrib import admin
 from SeRu.views import *
@@ -72,7 +74,7 @@ urlpatterns = [
     url(r'^registrarse/$', Registrarse, name='registrarse'),
     url(r'^usuarios/$',ListaUsers.as_view(), name='usuarios'),
     url(r'^usuarios/borrar/(?P<pk>[0-9]+)/$',BorraPerfil.as_view(),name='borrar_usuario'),
-#    url(r'^usuarios/mostrar/(?P<pk>[0-9]+)/$',MuestraUsuario.as_view(), name='mostrar_usuario'),
+    url(r'^usuarios/mostrar/(?P<pk>[0-9]+)/$',MuestraUsuario.as_view(), name='mostrar_usuario'),
     url(r'^posts/$', ListaPosts.as_view(), name='posts'),
 #    url(r'^posts/agregar/$',CreaPost,name='nuevo_post'),
     url(r'^posts/agregar/$',CreaPost.as_view(),name='nuevo_post'),
@@ -85,3 +87,6 @@ urlpatterns = [
     url(r'^vehiculos/mostrar/(?P<pk>[0-9]+)/$',MuestraVehiculo.as_view(),name='mostrar_vehiculo'),
 #    url(r'^vehiculos/borrar/(?P<pk>[0-9]+)/$',BorraVehiculo.as_view(),name='borrar_vehiculo'),
 ]
+
+if settings.DEBUG:
+	urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
