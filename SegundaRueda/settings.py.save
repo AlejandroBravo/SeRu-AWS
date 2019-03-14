@@ -45,8 +45,6 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
-    'analytical',
-    'django_openid_auth',
 ]
 
 MIDDLEWARE = [
@@ -155,11 +153,9 @@ REST_FRAMEWORK = {
 AUTHENTICATION_BACKENDS = (
     "django.contrib.auth.backends.ModelBackend",
     "allauth.account.auth_backends.AuthenticationBackend",
-    "django_openid_auth.auth.OpenIDBackend",
 )
 
-SITE_ID = 1
-
-SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-OPENID_CREATE_USERS = True
-OPENID_SSO_SERVER_URL = 'https://login.launchpad.net/'
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)

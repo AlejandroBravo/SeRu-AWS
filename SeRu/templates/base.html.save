@@ -5,7 +5,7 @@
   <head>
     {% analytical_head_top %}
     {% load static %}
-<!--    {% load socialaccount %}-->
+    {% load socialaccount %}
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -26,16 +26,18 @@
   _paq.push(['trackPageView']);
   _paq.push(['enableLinkTracking']);
   (function() {
-    var u="http://matomo-casa.duckdns.org:9000/";
+    var u="http://81.0.55.12/";
     _paq.push(['setTrackerUrl', u+'piwik.php']);
     _paq.push(['setSiteId', '1']);
     var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBef$
   })();
 </script>
 <!-- End Matomo Code -->
+
     {% analytical_head_bottom %}
   </head>
+
   <body>
     {% analytical_body_top %}
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
@@ -58,9 +60,9 @@
           <li class="nav-item">
             <a class="nav-link" style="color: white;" href="{% url 'registrarse' %}">Crea tu cuenta</a>
 	  </li>
-<!--	  <li>  
+	  <li>  
 	    <a class="nav-link" style="color: white;" href="{% provider_login_url 'github' %}">Crea tu cuenta con GitHub
-          </li>-->
+          </li>
           {% endif %}
           {% if user.is_authenticated %}
           <li class="nav-item">
@@ -86,7 +88,7 @@
       </div>
     </nav>
     <br>
-    {% block jumbotron %}
+    {% block jumbo %}
     {% endblock %}
     {% block content %}
     {% endblock %}

@@ -23,7 +23,7 @@ from SeRu.models import *
 from rest_framework import routers, serializers, viewsets
 from rest_framework.authentication import SessionAuthentication, BasicAuthentication
 from rest_framework.permissions import IsAuthenticated
-
+#from django_openid_auth import *
 
 app_name = 'SeRu'
 
@@ -67,6 +67,8 @@ router.register(r'APIvehiculos', VehiculoViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^cuentas/', include('allauth.urls')),
+    url(r'^openid/', include('django_openid_auth.urls')),
     url(r'^api/', include(router.urls)),
     url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     url(r'^accounts/', include('django.contrib.auth.urls')),
